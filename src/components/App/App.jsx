@@ -1,5 +1,10 @@
 import React, { useRef, useEffect, useState } from 'react';
 import mapboxgl from '!mapbox-gl'; 
+import Card from '@mui/material/Card';
+import { palette } from '@mui/system';
+
+
+import Map from '../Map/Map'
 
 
 
@@ -62,20 +67,26 @@ function App() {
 
       <div>
 
-        <div className="sidebar">
-          Longitude: {lng} | Latitude: {lat} | Zoom: {zoom}
-        </div>
-        <div ref={mapContainer} className="map-container" />
-        <div>
-        <input placeholder='latitude' value={lat} onChange={(event) => setLat(event.target.value)}></input>
-        <input placeholder='longitude' value={lng} onChange={(event) => setLng(event.target.value)}></input>
-        <button onClick={handleSubmit}>submit</button>
-        </div>
+        <Card sx={{ maxWidth: 345, m:2 }} >
+
+          <div className="sidebar">
+            Longitude: {lng} | Latitude: {lat} | Zoom: {zoom}
+          </div>
+          <div ref={mapContainer} className="map-container" />
+          <div>
+          <input placeholder='latitude' value={lat} onChange={(event) => setLat(event.target.value)}></input>
+          <input placeholder='longitude' value={lng} onChange={(event) => setLng(event.target.value)}></input>
+          <button onClick={handleSubmit}>submit</button>
+          </div>
 
 
+        </Card>
+
+      <Map />
 
 
       </div>
+
 
 
   );
